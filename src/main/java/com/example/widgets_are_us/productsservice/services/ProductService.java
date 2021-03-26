@@ -27,15 +27,16 @@ public class ProductService {
         return product;
     }
 
-    public Product replaceProduct(Long id, String product) {
+    public Product replaceProduct(Long id, String productJson) {
+        log.debug("Product json: " + productJson);
         productRepository.findByProductId(id)
                 .orElseThrow(() -> new ResourceNotFoundException(PRODUCT_NOT_FOUND_FOR_THIS_ID + id));
 
-        Product updatedProduct = Product.fromJson(product);
+        Product updatedProduct = Product.fromJson(productJson);
         updatedProduct.setId(id);
         updatedProduct = productRepository.save(updatedProduct);
 
-        log.debug(updatedProduct.toJson());
+        log.debug("Updated product: " + updatedProduct.toJson());
 
         return updatedProduct;
     }

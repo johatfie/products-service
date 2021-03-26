@@ -31,10 +31,6 @@ public class Dollars {
         this.amount = (long) (amt * MULTIPLIER);
     }
 
-    //public void fromDecimal(double amt) {
-        //this.amount = (long) (amt * MULTIPLIER);
-    //}
-
     public double toDecimal() {
         return (double) amount / MULTIPLIER;
     }

@@ -56,7 +56,7 @@ public class ProductController {
     consumes = "application/json")
     public Product updateProduct(@PathVariable(value = "id") Long id,
                                  @RequestBody String product) {
-       return  productService.replaceProduct(id, product);
+       return productService.replaceProduct(id, product);
    }
 
 }
