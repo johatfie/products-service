@@ -61,7 +61,7 @@ public class Product {
         }
         catch(Exception e) {
             log.error(e.getClass().getName(), e.getMessage());
-            return null;
+            return new Product();
         }
     }
 

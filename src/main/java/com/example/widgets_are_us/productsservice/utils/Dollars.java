@@ -1,7 +1,9 @@
 package com.example.widgets_are_us.productsservice.utils;
 
+import javax.persistence.Embeddable;
 import java.text.DecimalFormat;
 
+@Embeddable
 public class Dollars {
 
     private static final long MULTIPLIER = 100_000_000L;
@@ -29,15 +31,15 @@ public class Dollars {
         this.amount = (long) (amt * MULTIPLIER);
     }
 
-    public void fromDecimal(double amt) {
-        this.amount = (long) (amt * MULTIPLIER);
-    }
+    //public void fromDecimal(double amt) {
+        //this.amount = (long) (amt * MULTIPLIER);
+    //}
 
     public double toDecimal() {
         return (double) amount / MULTIPLIER;
     }
 
-    public String toMoney() {
+    public String toString() {
         return df.format((double) Math.round(this.toDecimal() * 100) / 100);
     }
 
